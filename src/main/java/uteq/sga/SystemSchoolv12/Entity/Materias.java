@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Materias.findAll", query = "SELECT m FROM Materias m"),
-    @NamedQuery(name = "Materias.findByMateriaId", query = "SELECT m FROM Materias m WHERE m.materiaId = :materiaId"),
+    @NamedQuery(name = "Materias.findByMateriaid", query = "SELECT m FROM Materias m WHERE m.materiaid = :materiaid"),
     @NamedQuery(name = "Materias.findByNombremateria", query = "SELECT m FROM Materias m WHERE m.nombremateria = :nombremateria"),
     @NamedQuery(name = "Materias.findByHorasclase", query = "SELECT m FROM Materias m WHERE m.horasclase = :horasclase")})
 public class Materias implements Serializable {
@@ -37,35 +37,35 @@ public class Materias implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "materia_id")
-    private Integer materiaId;
+    @Column(name = "materiaid")
+    private Integer materiaid;
     @Column(name = "nombremateria")
     private String nombremateria;
     @Basic(optional = false)
     @Column(name = "horasclase")
     private int horasclase;
-    @JoinColumn(name = "seccion_id", referencedColumnName = "seccion_id")
+    @JoinColumn(name = "seccionid", referencedColumnName = "seccionid")
     @ManyToOne
-    private Secciones seccionId;
+    private Secciones seccionid;
 
     public Materias() {
     }
 
-    public Materias(Integer materiaId) {
-        this.materiaId = materiaId;
+    public Materias(Integer materiaid) {
+        this.materiaid = materiaid;
     }
 
-    public Materias(Integer materiaId, int horasclase) {
-        this.materiaId = materiaId;
+    public Materias(Integer materiaid, int horasclase) {
+        this.materiaid = materiaid;
         this.horasclase = horasclase;
     }
 
-    public Integer getMateriaId() {
-        return materiaId;
+    public Integer getMateriaid() {
+        return materiaid;
     }
 
-    public void setMateriaId(Integer materiaId) {
-        this.materiaId = materiaId;
+    public void setMateriaid(Integer materiaid) {
+        this.materiaid = materiaid;
     }
 
     public String getNombremateria() {
@@ -84,18 +84,18 @@ public class Materias implements Serializable {
         this.horasclase = horasclase;
     }
 
-    public Secciones getSeccionId() {
-        return seccionId;
+    public Secciones getSeccionid() {
+        return seccionid;
     }
 
-    public void setSeccionId(Secciones seccionId) {
-        this.seccionId = seccionId;
+    public void setSeccionid(Secciones seccionid) {
+        this.seccionid = seccionid;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (materiaId != null ? materiaId.hashCode() : 0);
+        hash += (materiaid != null ? materiaid.hashCode() : 0);
         return hash;
     }
 
@@ -106,7 +106,7 @@ public class Materias implements Serializable {
             return false;
         }
         Materias other = (Materias) object;
-        if ((this.materiaId == null && other.materiaId != null) || (this.materiaId != null && !this.materiaId.equals(other.materiaId))) {
+        if ((this.materiaid == null && other.materiaid != null) || (this.materiaid != null && !this.materiaid.equals(other.materiaid))) {
             return false;
         }
         return true;
@@ -114,7 +114,7 @@ public class Materias implements Serializable {
 
     @Override
     public String toString() {
-        return "uteq.sga.SystemSchoolv12.Entity.Materias[ materiaId=" + materiaId + " ]";
+        return "uteq.sga.SystemSchoolv12.Entity.Materias[ materiaid=" + materiaid + " ]";
     }
     
 }

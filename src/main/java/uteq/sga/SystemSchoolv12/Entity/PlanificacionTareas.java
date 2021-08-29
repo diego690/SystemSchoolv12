@@ -73,9 +73,9 @@ public class PlanificacionTareas implements Serializable {
     @JoinColumn(name = "idasignatura", referencedColumnName = "idasignatura")
     @ManyToOne(optional = false)
     private Asignaturas idasignatura;
-    @JoinColumn(name = "clase_id", referencedColumnName = "idcarrera")
+    @JoinColumn(name = "claseid", referencedColumnName = "idcarrera")
     @ManyToOne(optional = false)
-    private Carreras claseId;
+    private Carreras claseid;
     @JoinColumn(name = "iddocente", referencedColumnName = "iddocente")
     @ManyToOne(optional = false)
     private Docentes iddocente;
@@ -170,12 +170,12 @@ public class PlanificacionTareas implements Serializable {
         this.idasignatura = idasignatura;
     }
 
-    public Carreras getClaseId() {
-        return claseId;
+    public Carreras getClaseid() {
+        return claseid;
     }
 
-    public void setClaseId(Carreras claseId) {
-        this.claseId = claseId;
+    public void setClaseid(Carreras claseid) {
+        this.claseid = claseid;
     }
 
     public Docentes getIddocente() {

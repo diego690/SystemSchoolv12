@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "DocumentosEstudiante.findAll", query = "SELECT d FROM DocumentosEstudiante d"),
-    @NamedQuery(name = "DocumentosEstudiante.findByDocumentoId", query = "SELECT d FROM DocumentosEstudiante d WHERE d.documentoId = :documentoId"),
+    @NamedQuery(name = "DocumentosEstudiante.findByDocumentoid", query = "SELECT d FROM DocumentosEstudiante d WHERE d.documentoid = :documentoid"),
     @NamedQuery(name = "DocumentosEstudiante.findByDescripciondocumento", query = "SELECT d FROM DocumentosEstudiante d WHERE d.descripciondocumento = :descripciondocumento"),
     @NamedQuery(name = "DocumentosEstudiante.findByDocumento", query = "SELECT d FROM DocumentosEstudiante d WHERE d.documento = :documento"),
     @NamedQuery(name = "DocumentosEstudiante.findByIdestudiante", query = "SELECT d FROM DocumentosEstudiante d WHERE d.idestudiante = :idestudiante"),
@@ -40,8 +40,8 @@ public class DocumentosEstudiante implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "documento_id")
-    private Integer documentoId;
+    @Column(name = "documentoid")
+    private Integer documentoid;
     @Basic(optional = false)
     @Column(name = "descripciondocumento")
     private String descripciondocumento;
@@ -57,22 +57,22 @@ public class DocumentosEstudiante implements Serializable {
     public DocumentosEstudiante() {
     }
 
-    public DocumentosEstudiante(Integer documentoId) {
-        this.documentoId = documentoId;
+    public DocumentosEstudiante(Integer documentoid) {
+        this.documentoid = documentoid;
     }
 
-    public DocumentosEstudiante(Integer documentoId, String descripciondocumento, String documento) {
-        this.documentoId = documentoId;
+    public DocumentosEstudiante(Integer documentoid, String descripciondocumento, String documento) {
+        this.documentoid = documentoid;
         this.descripciondocumento = descripciondocumento;
         this.documento = documento;
     }
 
-    public Integer getDocumentoId() {
-        return documentoId;
+    public Integer getDocumentoid() {
+        return documentoid;
     }
 
-    public void setDocumentoId(Integer documentoId) {
-        this.documentoId = documentoId;
+    public void setDocumentoid(Integer documentoid) {
+        this.documentoid = documentoid;
     }
 
     public String getDescripciondocumento() {
@@ -110,7 +110,7 @@ public class DocumentosEstudiante implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (documentoId != null ? documentoId.hashCode() : 0);
+        hash += (documentoid != null ? documentoid.hashCode() : 0);
         return hash;
     }
 
@@ -121,7 +121,7 @@ public class DocumentosEstudiante implements Serializable {
             return false;
         }
         DocumentosEstudiante other = (DocumentosEstudiante) object;
-        if ((this.documentoId == null && other.documentoId != null) || (this.documentoId != null && !this.documentoId.equals(other.documentoId))) {
+        if ((this.documentoid == null && other.documentoid != null) || (this.documentoid != null && !this.documentoid.equals(other.documentoid))) {
             return false;
         }
         return true;
@@ -129,7 +129,7 @@ public class DocumentosEstudiante implements Serializable {
 
     @Override
     public String toString() {
-        return "uteq.sga.SystemSchoolv12.Entity.DocumentosEstudiante[ documentoId=" + documentoId + " ]";
+        return "uteq.sga.SystemSchoolv12.Entity.DocumentosEstudiante[ documentoid=" + documentoid + " ]";
     }
     
 }

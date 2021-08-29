@@ -59,9 +59,9 @@ public class Asignaturas implements Serializable {
     private Collection<Horarioclase> horarioclaseCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idasignatura")
     private Collection<PlanificacionTareas> planificacionTareasCollection;
-    @JoinColumn(name = "seccion_id", referencedColumnName = "seccion_id")
+    @JoinColumn(name = "seccionid", referencedColumnName = "seccionid")
     @ManyToOne
-    private Secciones seccionId;
+    private Secciones seccionid;
     @JoinColumn(name = "idyear", referencedColumnName = "idyearacademico")
     @ManyToOne(optional = false)
     private YearsAcademicos idyear;
@@ -157,12 +157,12 @@ public class Asignaturas implements Serializable {
         this.planificacionTareasCollection = planificacionTareasCollection;
     }
 
-    public Secciones getSeccionId() {
-        return seccionId;
+    public Secciones getSeccionid() {
+        return seccionid;
     }
 
-    public void setSeccionId(Secciones seccionId) {
-        this.seccionId = seccionId;
+    public void setSeccionid(Secciones seccionid) {
+        this.seccionid = seccionid;
     }
 
     public YearsAcademicos getIdyear() {

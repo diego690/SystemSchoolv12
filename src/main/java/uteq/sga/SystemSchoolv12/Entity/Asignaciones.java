@@ -48,18 +48,18 @@ public class Asignaciones implements Serializable {
     @JoinColumn(name = "idasignatura", referencedColumnName = "idasignatura")
     @ManyToOne(optional = false)
     private Asignaturas idasignatura;
-    @JoinColumn(name = "aula_id", referencedColumnName = "aula_id")
+    @JoinColumn(name = "aulaid", referencedColumnName = "aulaid")
     @ManyToOne(optional = false)
-    private Aula aulaId;
+    private Aula aulaid;
     @JoinColumn(name = "idcarrera", referencedColumnName = "idcarrera")
     @ManyToOne(optional = false)
     private Carreras idcarrera;
     @JoinColumn(name = "iddocente", referencedColumnName = "iddocente")
     @ManyToOne(optional = false)
     private Docentes iddocente;
-    @JoinColumn(name = "seccion_id", referencedColumnName = "seccion_id")
+    @JoinColumn(name = "seccionid", referencedColumnName = "seccionid")
     @ManyToOne(optional = false)
-    private Secciones seccionId;
+    private Secciones seccionid;
 
     public Asignaciones() {
     }
@@ -106,12 +106,12 @@ public class Asignaciones implements Serializable {
         this.idasignatura = idasignatura;
     }
 
-    public Aula getAulaId() {
-        return aulaId;
+    public Aula getAulaid() {
+        return aulaid;
     }
 
-    public void setAulaId(Aula aulaId) {
-        this.aulaId = aulaId;
+    public void setAulaid(Aula aulaid) {
+        this.aulaid = aulaid;
     }
 
     public Carreras getIdcarrera() {
@@ -130,12 +130,12 @@ public class Asignaciones implements Serializable {
         this.iddocente = iddocente;
     }
 
-    public Secciones getSeccionId() {
-        return seccionId;
+    public Secciones getSeccionid() {
+        return seccionid;
     }
 
-    public void setSeccionId(Secciones seccionId) {
-        this.seccionId = seccionId;
+    public void setSeccionid(Secciones seccionid) {
+        this.seccionid = seccionid;
     }
 
     @Override

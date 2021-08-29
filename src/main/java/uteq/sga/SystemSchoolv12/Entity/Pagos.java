@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Pagos.findByDetallepago", query = "SELECT p FROM Pagos p WHERE p.detallepago = :detallepago"),
     @NamedQuery(name = "Pagos.findByDocumentopago", query = "SELECT p FROM Pagos p WHERE p.documentopago = :documentopago"),
     @NamedQuery(name = "Pagos.findByEstado", query = "SELECT p FROM Pagos p WHERE p.estado = :estado"),
-    @NamedQuery(name = "Pagos.findByFechaPago", query = "SELECT p FROM Pagos p WHERE p.fechaPago = :fechaPago")})
+    @NamedQuery(name = "Pagos.findByFechapago", query = "SELECT p FROM Pagos p WHERE p.fechapago = :fechapago")})
 public class Pagos implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,9 +50,9 @@ public class Pagos implements Serializable {
     private String documentopago;
     @Column(name = "estado")
     private String estado;
-    @Column(name = "fecha_pago")
+    @Column(name = "fechapago")
     @Temporal(TemporalType.DATE)
-    private Date fechaPago;
+    private Date fechapago;
     @JoinColumn(name = "idestudiante", referencedColumnName = "idestudiante")
     @ManyToOne
     private Estudiantes idestudiante;
@@ -96,12 +96,12 @@ public class Pagos implements Serializable {
         this.estado = estado;
     }
 
-    public Date getFechaPago() {
-        return fechaPago;
+    public Date getFechapago() {
+        return fechapago;
     }
 
-    public void setFechaPago(Date fechaPago) {
-        this.fechaPago = fechaPago;
+    public void setFechapago(Date fechapago) {
+        this.fechapago = fechapago;
     }
 
     public Estudiantes getIdestudiante() {

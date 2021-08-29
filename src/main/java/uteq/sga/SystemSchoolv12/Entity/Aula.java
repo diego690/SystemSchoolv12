@@ -30,45 +30,45 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Aula.findAll", query = "SELECT a FROM Aula a"),
-    @NamedQuery(name = "Aula.findByAulaId", query = "SELECT a FROM Aula a WHERE a.aulaId = :aulaId"),
+    @NamedQuery(name = "Aula.findByAulaid", query = "SELECT a FROM Aula a WHERE a.aulaid = :aulaid"),
     @NamedQuery(name = "Aula.findByAula", query = "SELECT a FROM Aula a WHERE a.aula = :aula"),
-    @NamedQuery(name = "Aula.findByCantidadEstudiantes", query = "SELECT a FROM Aula a WHERE a.cantidadEstudiantes = :cantidadEstudiantes")})
+    @NamedQuery(name = "Aula.findByCantidadestudiantes", query = "SELECT a FROM Aula a WHERE a.cantidadestudiantes = :cantidadestudiantes")})
 public class Aula implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "aula_id")
-    private Integer aulaId;
+    @Column(name = "aulaid")
+    private Integer aulaid;
     @Basic(optional = false)
     @Column(name = "aula")
     private String aula;
-    @Column(name = "cantidad_estudiantes")
-    private Integer cantidadEstudiantes;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "aulaId")
+    @Column(name = "cantidadestudiantes")
+    private Integer cantidadestudiantes;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "aulaid")
     private Collection<Asignaciones> asignacionesCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "aulaId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "aulaid")
     private Collection<Horarioclase> horarioclaseCollection;
 
     public Aula() {
     }
 
-    public Aula(Integer aulaId) {
-        this.aulaId = aulaId;
+    public Aula(Integer aulaid) {
+        this.aulaid = aulaid;
     }
 
-    public Aula(Integer aulaId, String aula) {
-        this.aulaId = aulaId;
+    public Aula(Integer aulaid, String aula) {
+        this.aulaid = aulaid;
         this.aula = aula;
     }
 
-    public Integer getAulaId() {
-        return aulaId;
+    public Integer getAulaid() {
+        return aulaid;
     }
 
-    public void setAulaId(Integer aulaId) {
-        this.aulaId = aulaId;
+    public void setAulaid(Integer aulaid) {
+        this.aulaid = aulaid;
     }
 
     public String getAula() {
@@ -79,12 +79,12 @@ public class Aula implements Serializable {
         this.aula = aula;
     }
 
-    public Integer getCantidadEstudiantes() {
-        return cantidadEstudiantes;
+    public Integer getCantidadestudiantes() {
+        return cantidadestudiantes;
     }
 
-    public void setCantidadEstudiantes(Integer cantidadEstudiantes) {
-        this.cantidadEstudiantes = cantidadEstudiantes;
+    public void setCantidadestudiantes(Integer cantidadestudiantes) {
+        this.cantidadestudiantes = cantidadestudiantes;
     }
 
     @XmlTransient
@@ -108,7 +108,7 @@ public class Aula implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (aulaId != null ? aulaId.hashCode() : 0);
+        hash += (aulaid != null ? aulaid.hashCode() : 0);
         return hash;
     }
 
@@ -119,7 +119,7 @@ public class Aula implements Serializable {
             return false;
         }
         Aula other = (Aula) object;
-        if ((this.aulaId == null && other.aulaId != null) || (this.aulaId != null && !this.aulaId.equals(other.aulaId))) {
+        if ((this.aulaid == null && other.aulaid != null) || (this.aulaid != null && !this.aulaid.equals(other.aulaid))) {
             return false;
         }
         return true;
@@ -127,7 +127,7 @@ public class Aula implements Serializable {
 
     @Override
     public String toString() {
-        return "uteq.sga.SystemSchoolv12.Entity.Aula[ aulaId=" + aulaId + " ]";
+        return "uteq.sga.SystemSchoolv12.Entity.Aula[ aulaid=" + aulaid + " ]";
     }
     
 }

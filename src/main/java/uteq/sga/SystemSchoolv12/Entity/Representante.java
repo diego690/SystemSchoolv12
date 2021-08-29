@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Representante.findAll", query = "SELECT r FROM Representante r"),
-    @NamedQuery(name = "Representante.findByRepresentanteId", query = "SELECT r FROM Representante r WHERE r.representanteId = :representanteId"),
+    @NamedQuery(name = "Representante.findByRepresentanteid", query = "SELECT r FROM Representante r WHERE r.representanteid = :representanteid"),
     @NamedQuery(name = "Representante.findByNombres", query = "SELECT r FROM Representante r WHERE r.nombres = :nombres"),
     @NamedQuery(name = "Representante.findByApellidos", query = "SELECT r FROM Representante r WHERE r.apellidos = :apellidos"),
     @NamedQuery(name = "Representante.findByCedula", query = "SELECT r FROM Representante r WHERE r.cedula = :cedula"),
@@ -46,8 +46,8 @@ public class Representante implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "representante_id")
-    private Integer representanteId;
+    @Column(name = "representanteid")
+    private Integer representanteid;
     @Column(name = "nombres")
     private String nombres;
     @Column(name = "apellidos")
@@ -74,16 +74,16 @@ public class Representante implements Serializable {
     public Representante() {
     }
 
-    public Representante(Integer representanteId) {
-        this.representanteId = representanteId;
+    public Representante(Integer representanteid) {
+        this.representanteid = representanteid;
     }
 
-    public Integer getRepresentanteId() {
-        return representanteId;
+    public Integer getRepresentanteid() {
+        return representanteid;
     }
 
-    public void setRepresentanteId(Integer representanteId) {
-        this.representanteId = representanteId;
+    public void setRepresentanteid(Integer representanteid) {
+        this.representanteid = representanteid;
     }
 
     public String getNombres() {
@@ -178,7 +178,7 @@ public class Representante implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (representanteId != null ? representanteId.hashCode() : 0);
+        hash += (representanteid != null ? representanteid.hashCode() : 0);
         return hash;
     }
 
@@ -189,7 +189,7 @@ public class Representante implements Serializable {
             return false;
         }
         Representante other = (Representante) object;
-        if ((this.representanteId == null && other.representanteId != null) || (this.representanteId != null && !this.representanteId.equals(other.representanteId))) {
+        if ((this.representanteid == null && other.representanteid != null) || (this.representanteid != null && !this.representanteid.equals(other.representanteid))) {
             return false;
         }
         return true;
@@ -197,7 +197,7 @@ public class Representante implements Serializable {
 
     @Override
     public String toString() {
-        return "uteq.sga.SystemSchoolv12.Entity.Representante[ representanteId=" + representanteId + " ]";
+        return "uteq.sga.SystemSchoolv12.Entity.Representante[ representanteid=" + representanteid + " ]";
     }
     
 }

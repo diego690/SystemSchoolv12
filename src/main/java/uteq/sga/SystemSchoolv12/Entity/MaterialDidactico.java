@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "MaterialDidactico.findByDescripcion", query = "SELECT m FROM MaterialDidactico m WHERE m.descripcion = :descripcion"),
     @NamedQuery(name = "MaterialDidactico.findByArchivo", query = "SELECT m FROM MaterialDidactico m WHERE m.archivo = :archivo"),
     @NamedQuery(name = "MaterialDidactico.findByCodigomaterial", query = "SELECT m FROM MaterialDidactico m WHERE m.codigomaterial = :codigomaterial"),
-    @NamedQuery(name = "MaterialDidactico.findByFechaSubida", query = "SELECT m FROM MaterialDidactico m WHERE m.fechaSubida = :fechaSubida")})
+    @NamedQuery(name = "MaterialDidactico.findByFechasubida", query = "SELECT m FROM MaterialDidactico m WHERE m.fechasubida = :fechasubida")})
 public class MaterialDidactico implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,9 +53,9 @@ public class MaterialDidactico implements Serializable {
     @Basic(optional = false)
     @Column(name = "codigomaterial")
     private int codigomaterial;
-    @Column(name = "fecha_subida")
+    @Column(name = "fechasubida")
     @Temporal(TemporalType.DATE)
-    private Date fechaSubida;
+    private Date fechasubida;
     @JoinColumn(name = "iddocente", referencedColumnName = "iddocente")
     @ManyToOne(optional = false)
     private Docentes iddocente;
@@ -109,12 +109,12 @@ public class MaterialDidactico implements Serializable {
         this.codigomaterial = codigomaterial;
     }
 
-    public Date getFechaSubida() {
-        return fechaSubida;
+    public Date getFechasubida() {
+        return fechasubida;
     }
 
-    public void setFechaSubida(Date fechaSubida) {
-        this.fechaSubida = fechaSubida;
+    public void setFechasubida(Date fechasubida) {
+        this.fechasubida = fechasubida;
     }
 
     public Docentes getIddocente() {

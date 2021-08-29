@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Horarioclase.findAll", query = "SELECT h FROM Horarioclase h"),
-    @NamedQuery(name = "Horarioclase.findByHorarioId", query = "SELECT h FROM Horarioclase h WHERE h.horarioId = :horarioId"),
+    @NamedQuery(name = "Horarioclase.findByHorarioid", query = "SELECT h FROM Horarioclase h WHERE h.horarioid = :horarioid"),
     @NamedQuery(name = "Horarioclase.findByDia", query = "SELECT h FROM Horarioclase h WHERE h.dia = :dia")})
 public class Horarioclase implements Serializable {
 
@@ -36,45 +36,45 @@ public class Horarioclase implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "horario_id")
-    private Integer horarioId;
+    @Column(name = "horarioid")
+    private Integer horarioid;
     @Basic(optional = false)
     @Column(name = "dia")
     private String dia;
     @JoinColumn(name = "idasignatura", referencedColumnName = "idasignatura")
     @ManyToOne(optional = false)
     private Asignaturas idasignatura;
-    @JoinColumn(name = "aula_id", referencedColumnName = "aula_id")
+    @JoinColumn(name = "aulaid", referencedColumnName = "aulaid")
     @ManyToOne(optional = false)
-    private Aula aulaId;
+    private Aula aulaid;
     @JoinColumn(name = "idcarrera", referencedColumnName = "idcarrera")
     @ManyToOne(optional = false)
     private Carreras idcarrera;
     @JoinColumn(name = "iddocente", referencedColumnName = "iddocente")
     @ManyToOne(optional = false)
     private Docentes iddocente;
-    @JoinColumn(name = "time_id", referencedColumnName = "time_id")
+    @JoinColumn(name = "timeid", referencedColumnName = "timeid")
     @ManyToOne(optional = false)
-    private Time timeId;
+    private Time timeid;
 
     public Horarioclase() {
     }
 
-    public Horarioclase(Integer horarioId) {
-        this.horarioId = horarioId;
+    public Horarioclase(Integer horarioid) {
+        this.horarioid = horarioid;
     }
 
-    public Horarioclase(Integer horarioId, String dia) {
-        this.horarioId = horarioId;
+    public Horarioclase(Integer horarioid, String dia) {
+        this.horarioid = horarioid;
         this.dia = dia;
     }
 
-    public Integer getHorarioId() {
-        return horarioId;
+    public Integer getHorarioid() {
+        return horarioid;
     }
 
-    public void setHorarioId(Integer horarioId) {
-        this.horarioId = horarioId;
+    public void setHorarioid(Integer horarioid) {
+        this.horarioid = horarioid;
     }
 
     public String getDia() {
@@ -93,12 +93,12 @@ public class Horarioclase implements Serializable {
         this.idasignatura = idasignatura;
     }
 
-    public Aula getAulaId() {
-        return aulaId;
+    public Aula getAulaid() {
+        return aulaid;
     }
 
-    public void setAulaId(Aula aulaId) {
-        this.aulaId = aulaId;
+    public void setAulaid(Aula aulaid) {
+        this.aulaid = aulaid;
     }
 
     public Carreras getIdcarrera() {
@@ -117,18 +117,18 @@ public class Horarioclase implements Serializable {
         this.iddocente = iddocente;
     }
 
-    public Time getTimeId() {
-        return timeId;
+    public Time getTimeid() {
+        return timeid;
     }
 
-    public void setTimeId(Time timeId) {
-        this.timeId = timeId;
+    public void setTimeid(Time timeid) {
+        this.timeid = timeid;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (horarioId != null ? horarioId.hashCode() : 0);
+        hash += (horarioid != null ? horarioid.hashCode() : 0);
         return hash;
     }
 
@@ -139,7 +139,7 @@ public class Horarioclase implements Serializable {
             return false;
         }
         Horarioclase other = (Horarioclase) object;
-        if ((this.horarioId == null && other.horarioId != null) || (this.horarioId != null && !this.horarioId.equals(other.horarioId))) {
+        if ((this.horarioid == null && other.horarioid != null) || (this.horarioid != null && !this.horarioid.equals(other.horarioid))) {
             return false;
         }
         return true;
@@ -147,7 +147,7 @@ public class Horarioclase implements Serializable {
 
     @Override
     public String toString() {
-        return "uteq.sga.SystemSchoolv12.Entity.Horarioclase[ horarioId=" + horarioId + " ]";
+        return "uteq.sga.SystemSchoolv12.Entity.Horarioclase[ horarioid=" + horarioid + " ]";
     }
     
 }

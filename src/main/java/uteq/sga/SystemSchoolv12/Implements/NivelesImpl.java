@@ -6,8 +6,10 @@
 package uteq.sga.SystemSchoolv12.Implements;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uteq.sga.SystemSchoolv12.Entity.Niveles;
+import uteq.sga.SystemSchoolv12.Repositorys.INivelesRepository;
 import uteq.sga.SystemSchoolv12.Services.INivelesServices;
 
 /**
@@ -16,25 +18,34 @@ import uteq.sga.SystemSchoolv12.Services.INivelesServices;
  */
 @Service
 public class NivelesImpl implements INivelesServices{
+    
+    @Autowired
+    private INivelesRepository nivelRepo;
 
     @Override
     public List<Niveles> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (List<Niveles>) nivelRepo.findAll();
     }
 
     @Override
     public void guardar(Niveles actividad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        nivelRepo.save(actividad);
     }
 
     @Override
     public Niveles buscaById(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return nivelRepo.findById(id).orElse(null);
     }
 
     @Override
     public void eliminar(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       nivelRepo.deleteById(id);
+    }
+
+    @Override
+    public int total() {
+        
+        return (int) nivelRepo.count();
     }
     
 }

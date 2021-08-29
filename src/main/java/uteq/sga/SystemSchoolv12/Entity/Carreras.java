@@ -49,7 +49,7 @@ public class Carreras implements Serializable {
     private Collection<Asignaciones> asignacionesCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idcarrera")
     private Collection<Horarioclase> horarioclaseCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "claseId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "claseid")
     private Collection<PlanificacionTareas> planificacionTareasCollection;
 
     public Carreras() {

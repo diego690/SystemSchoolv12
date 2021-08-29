@@ -6,35 +6,43 @@
 package uteq.sga.SystemSchoolv12.Implements;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uteq.sga.SystemSchoolv12.Entity.Documentos;
-import uteq.sga.SystemSchoolv12.Services.IDocumentosServices;
+import uteq.sga.SystemSchoolv12.Entity.Docentes;
+
+import uteq.sga.SystemSchoolv12.Repositorys.IDocentesRepository;
+import uteq.sga.SystemSchoolv12.Services.IDocentesServices;
+
 
 /**
  *
  * @author capur
  */
 @Service
-public class DocentesImpl implements IDocumentosServices{
+public class DocentesImpl implements IDocentesServices{
+    
+    @Autowired
+    private IDocentesRepository doceRepo;
 
     @Override
-    public List<Documentos> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Docentes> listarTodos() {
+        return (List<Docentes>) doceRepo.findAll();
     }
 
     @Override
-    public void guardar(Documentos actividad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void guardar(Docentes actividad) {
+        doceRepo.save(actividad);
     }
 
     @Override
-    public Documentos buscaById(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Docentes buscaById(Integer id) {
+        return doceRepo.findById(id).orElse(null);
     }
 
     @Override
     public void eliminar(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       doceRepo.deleteById(id);
     }
-    
+
+  
 }

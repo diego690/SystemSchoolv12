@@ -29,10 +29,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "DocumentoRepresentante.findAll", query = "SELECT d FROM DocumentoRepresentante d"),
-    @NamedQuery(name = "DocumentoRepresentante.findByDocumentoId", query = "SELECT d FROM DocumentoRepresentante d WHERE d.documentoId = :documentoId"),
+    @NamedQuery(name = "DocumentoRepresentante.findByDocumentoid", query = "SELECT d FROM DocumentoRepresentante d WHERE d.documentoid = :documentoid"),
     @NamedQuery(name = "DocumentoRepresentante.findByDescripciondocumento", query = "SELECT d FROM DocumentoRepresentante d WHERE d.descripciondocumento = :descripciondocumento"),
     @NamedQuery(name = "DocumentoRepresentante.findByDocumento", query = "SELECT d FROM DocumentoRepresentante d WHERE d.documento = :documento"),
-    @NamedQuery(name = "DocumentoRepresentante.findByRepresentanteId", query = "SELECT d FROM DocumentoRepresentante d WHERE d.representanteId = :representanteId"),
+    @NamedQuery(name = "DocumentoRepresentante.findByRepresentanteid", query = "SELECT d FROM DocumentoRepresentante d WHERE d.representanteid = :representanteid"),
     @NamedQuery(name = "DocumentoRepresentante.findByFechasubida", query = "SELECT d FROM DocumentoRepresentante d WHERE d.fechasubida = :fechasubida")})
 public class DocumentoRepresentante implements Serializable {
 
@@ -40,16 +40,16 @@ public class DocumentoRepresentante implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "documento_id")
-    private Integer documentoId;
+    @Column(name = "documentoid")
+    private Integer documentoid;
     @Basic(optional = false)
     @Column(name = "descripciondocumento")
     private String descripciondocumento;
     @Basic(optional = false)
     @Column(name = "documento")
     private String documento;
-    @Column(name = "representante_id")
-    private Integer representanteId;
+    @Column(name = "representanteid")
+    private Integer representanteid;
     @Column(name = "fechasubida")
     @Temporal(TemporalType.DATE)
     private Date fechasubida;
@@ -57,22 +57,22 @@ public class DocumentoRepresentante implements Serializable {
     public DocumentoRepresentante() {
     }
 
-    public DocumentoRepresentante(Integer documentoId) {
-        this.documentoId = documentoId;
+    public DocumentoRepresentante(Integer documentoid) {
+        this.documentoid = documentoid;
     }
 
-    public DocumentoRepresentante(Integer documentoId, String descripciondocumento, String documento) {
-        this.documentoId = documentoId;
+    public DocumentoRepresentante(Integer documentoid, String descripciondocumento, String documento) {
+        this.documentoid = documentoid;
         this.descripciondocumento = descripciondocumento;
         this.documento = documento;
     }
 
-    public Integer getDocumentoId() {
-        return documentoId;
+    public Integer getDocumentoid() {
+        return documentoid;
     }
 
-    public void setDocumentoId(Integer documentoId) {
-        this.documentoId = documentoId;
+    public void setDocumentoid(Integer documentoid) {
+        this.documentoid = documentoid;
     }
 
     public String getDescripciondocumento() {
@@ -91,12 +91,12 @@ public class DocumentoRepresentante implements Serializable {
         this.documento = documento;
     }
 
-    public Integer getRepresentanteId() {
-        return representanteId;
+    public Integer getRepresentanteid() {
+        return representanteid;
     }
 
-    public void setRepresentanteId(Integer representanteId) {
-        this.representanteId = representanteId;
+    public void setRepresentanteid(Integer representanteid) {
+        this.representanteid = representanteid;
     }
 
     public Date getFechasubida() {
@@ -110,7 +110,7 @@ public class DocumentoRepresentante implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (documentoId != null ? documentoId.hashCode() : 0);
+        hash += (documentoid != null ? documentoid.hashCode() : 0);
         return hash;
     }
 
@@ -121,7 +121,7 @@ public class DocumentoRepresentante implements Serializable {
             return false;
         }
         DocumentoRepresentante other = (DocumentoRepresentante) object;
-        if ((this.documentoId == null && other.documentoId != null) || (this.documentoId != null && !this.documentoId.equals(other.documentoId))) {
+        if ((this.documentoid == null && other.documentoid != null) || (this.documentoid != null && !this.documentoid.equals(other.documentoid))) {
             return false;
         }
         return true;
@@ -129,7 +129,7 @@ public class DocumentoRepresentante implements Serializable {
 
     @Override
     public String toString() {
-        return "uteq.sga.SystemSchoolv12.Entity.DocumentoRepresentante[ documentoId=" + documentoId + " ]";
+        return "uteq.sga.SystemSchoolv12.Entity.DocumentoRepresentante[ documentoid=" + documentoid + " ]";
     }
     
 }

@@ -6,8 +6,10 @@
 package uteq.sga.SystemSchoolv12.Implements;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uteq.sga.SystemSchoolv12.Entity.Representante;
+import uteq.sga.SystemSchoolv12.Repositorys.IRepresentanteRepository;
 import uteq.sga.SystemSchoolv12.Services.IRepresentanteServices;
 
 /**
@@ -16,25 +18,28 @@ import uteq.sga.SystemSchoolv12.Services.IRepresentanteServices;
  */
 @Service
 public class RepresentanteImpl implements IRepresentanteServices{
+    
+    @Autowired
+    private IRepresentanteRepository reprerepo;
 
     @Override
     public List<Representante> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (List<Representante>) reprerepo.findAll();
     }
 
     @Override
     public void guardar(Representante actividad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        reprerepo.save(actividad);
     }
 
     @Override
     public Representante buscaById(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return reprerepo.findById(id).orElse(null);
     }
 
     @Override
     public void eliminar(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        reprerepo.deleteById(id);
     }
     
 }

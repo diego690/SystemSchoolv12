@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Secciones.findAll", query = "SELECT s FROM Secciones s"),
-    @NamedQuery(name = "Secciones.findBySeccionId", query = "SELECT s FROM Secciones s WHERE s.seccionId = :seccionId"),
+    @NamedQuery(name = "Secciones.findBySeccionid", query = "SELECT s FROM Secciones s WHERE s.seccionid = :seccionid"),
     @NamedQuery(name = "Secciones.findByNombreseccion", query = "SELECT s FROM Secciones s WHERE s.nombreseccion = :nombreseccion")})
 public class Secciones implements Serializable {
 
@@ -40,33 +40,33 @@ public class Secciones implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "seccion_id")
-    private Integer seccionId;
+    @Column(name = "seccionid")
+    private Integer seccionid;
     @Column(name = "nombreseccion")
     private String nombreseccion;
     @JoinColumn(name = "idyearacademico", referencedColumnName = "idyearacademico")
     @ManyToOne
     private YearsAcademicos idyearacademico;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "seccionId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "seccionid")
     private Collection<Asignaciones> asignacionesCollection;
-    @OneToMany(mappedBy = "seccionId")
+    @OneToMany(mappedBy = "seccionid")
     private Collection<Asignaturas> asignaturasCollection;
-    @OneToMany(mappedBy = "seccionId")
+    @OneToMany(mappedBy = "seccionid")
     private Collection<Materias> materiasCollection;
 
     public Secciones() {
     }
 
-    public Secciones(Integer seccionId) {
-        this.seccionId = seccionId;
+    public Secciones(Integer seccionid) {
+        this.seccionid = seccionid;
     }
 
-    public Integer getSeccionId() {
-        return seccionId;
+    public Integer getSeccionid() {
+        return seccionid;
     }
 
-    public void setSeccionId(Integer seccionId) {
-        this.seccionId = seccionId;
+    public void setSeccionid(Integer seccionid) {
+        this.seccionid = seccionid;
     }
 
     public String getNombreseccion() {
@@ -115,7 +115,7 @@ public class Secciones implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (seccionId != null ? seccionId.hashCode() : 0);
+        hash += (seccionid != null ? seccionid.hashCode() : 0);
         return hash;
     }
 
@@ -126,7 +126,7 @@ public class Secciones implements Serializable {
             return false;
         }
         Secciones other = (Secciones) object;
-        if ((this.seccionId == null && other.seccionId != null) || (this.seccionId != null && !this.seccionId.equals(other.seccionId))) {
+        if ((this.seccionid == null && other.seccionid != null) || (this.seccionid != null && !this.seccionid.equals(other.seccionid))) {
             return false;
         }
         return true;
@@ -134,7 +134,7 @@ public class Secciones implements Serializable {
 
     @Override
     public String toString() {
-        return "uteq.sga.SystemSchoolv12.Entity.Secciones[ seccionId=" + seccionId + " ]";
+        return "uteq.sga.SystemSchoolv12.Entity.Secciones[ seccionid=" + seccionid + " ]";
     }
     
 }

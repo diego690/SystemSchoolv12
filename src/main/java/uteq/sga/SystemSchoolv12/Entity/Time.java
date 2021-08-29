@@ -33,9 +33,9 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Time.findAll", query = "SELECT t FROM Time t"),
-    @NamedQuery(name = "Time.findByTimeId", query = "SELECT t FROM Time t WHERE t.timeId = :timeId"),
-    @NamedQuery(name = "Time.findByTimeStart", query = "SELECT t FROM Time t WHERE t.timeStart = :timeStart"),
-    @NamedQuery(name = "Time.findByTimeEnd", query = "SELECT t FROM Time t WHERE t.timeEnd = :timeEnd"),
+    @NamedQuery(name = "Time.findByTimeid", query = "SELECT t FROM Time t WHERE t.timeid = :timeid"),
+    @NamedQuery(name = "Time.findByTimestart", query = "SELECT t FROM Time t WHERE t.timestart = :timestart"),
+    @NamedQuery(name = "Time.findByTimeend", query = "SELECT t FROM Time t WHERE t.timeend = :timeend"),
     @NamedQuery(name = "Time.findByDias", query = "SELECT t FROM Time t WHERE t.dias = :dias")})
 public class Time implements Serializable {
 
@@ -43,58 +43,58 @@ public class Time implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "time_id")
-    private Integer timeId;
+    @Column(name = "timeid")
+    private Integer timeid;
     @Basic(optional = false)
-    @Column(name = "time_start")
+    @Column(name = "timestart")
     @Temporal(TemporalType.TIME)
-    private Date timeStart;
+    private Date timestart;
     @Basic(optional = false)
-    @Column(name = "time_end")
+    @Column(name = "timeend")
     @Temporal(TemporalType.TIME)
-    private Date timeEnd;
+    private Date timeend;
     @Basic(optional = false)
     @Column(name = "dias")
     private String dias;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "timeId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "timeid")
     private Collection<Horarioclase> horarioclaseCollection;
 
     public Time() {
     }
 
-    public Time(Integer timeId) {
-        this.timeId = timeId;
+    public Time(Integer timeid) {
+        this.timeid = timeid;
     }
 
-    public Time(Integer timeId, Date timeStart, Date timeEnd, String dias) {
-        this.timeId = timeId;
-        this.timeStart = timeStart;
-        this.timeEnd = timeEnd;
+    public Time(Integer timeid, Date timestart, Date timeend, String dias) {
+        this.timeid = timeid;
+        this.timestart = timestart;
+        this.timeend = timeend;
         this.dias = dias;
     }
 
-    public Integer getTimeId() {
-        return timeId;
+    public Integer getTimeid() {
+        return timeid;
     }
 
-    public void setTimeId(Integer timeId) {
-        this.timeId = timeId;
+    public void setTimeid(Integer timeid) {
+        this.timeid = timeid;
     }
 
-    public Date getTimeStart() {
-        return timeStart;
+    public Date getTimestart() {
+        return timestart;
     }
 
-    public void setTimeStart(Date timeStart) {
-        this.timeStart = timeStart;
+    public void setTimestart(Date timestart) {
+        this.timestart = timestart;
     }
 
-    public Date getTimeEnd() {
-        return timeEnd;
+    public Date getTimeend() {
+        return timeend;
     }
 
-    public void setTimeEnd(Date timeEnd) {
-        this.timeEnd = timeEnd;
+    public void setTimeend(Date timeend) {
+        this.timeend = timeend;
     }
 
     public String getDias() {
@@ -117,7 +117,7 @@ public class Time implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (timeId != null ? timeId.hashCode() : 0);
+        hash += (timeid != null ? timeid.hashCode() : 0);
         return hash;
     }
 
@@ -128,7 +128,7 @@ public class Time implements Serializable {
             return false;
         }
         Time other = (Time) object;
-        if ((this.timeId == null && other.timeId != null) || (this.timeId != null && !this.timeId.equals(other.timeId))) {
+        if ((this.timeid == null && other.timeid != null) || (this.timeid != null && !this.timeid.equals(other.timeid))) {
             return false;
         }
         return true;
@@ -136,7 +136,7 @@ public class Time implements Serializable {
 
     @Override
     public String toString() {
-        return "uteq.sga.SystemSchoolv12.Entity.Time[ timeId=" + timeId + " ]";
+        return "uteq.sga.SystemSchoolv12.Entity.Time[ timeid=" + timeid + " ]";
     }
     
 }

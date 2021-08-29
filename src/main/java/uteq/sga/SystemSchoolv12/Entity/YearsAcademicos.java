@@ -35,8 +35,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "YearsAcademicos.findAll", query = "SELECT y FROM YearsAcademicos y"),
     @NamedQuery(name = "YearsAcademicos.findByIdyearacademico", query = "SELECT y FROM YearsAcademicos y WHERE y.idyearacademico = :idyearacademico"),
     @NamedQuery(name = "YearsAcademicos.findByNombreyear", query = "SELECT y FROM YearsAcademicos y WHERE y.nombreyear = :nombreyear"),
-    @NamedQuery(name = "YearsAcademicos.findByFechaInicio", query = "SELECT y FROM YearsAcademicos y WHERE y.fechaInicio = :fechaInicio"),
-    @NamedQuery(name = "YearsAcademicos.findByFechaFin", query = "SELECT y FROM YearsAcademicos y WHERE y.fechaFin = :fechaFin")})
+    @NamedQuery(name = "YearsAcademicos.findByFechainicio", query = "SELECT y FROM YearsAcademicos y WHERE y.fechainicio = :fechainicio"),
+    @NamedQuery(name = "YearsAcademicos.findByFechafin", query = "SELECT y FROM YearsAcademicos y WHERE y.fechafin = :fechafin")})
 public class YearsAcademicos implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -48,12 +48,12 @@ public class YearsAcademicos implements Serializable {
     @Basic(optional = false)
     @Column(name = "nombreyear")
     private String nombreyear;
-    @Column(name = "fecha_inicio")
+    @Column(name = "fechainicio")
     @Temporal(TemporalType.DATE)
-    private Date fechaInicio;
-    @Column(name = "fecha_fin")
+    private Date fechainicio;
+    @Column(name = "fechafin")
     @Temporal(TemporalType.DATE)
-    private Date fechaFin;
+    private Date fechafin;
     @OneToMany(mappedBy = "idyearacademico")
     private Collection<Secciones> seccionesCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idyear")
@@ -87,20 +87,20 @@ public class YearsAcademicos implements Serializable {
         this.nombreyear = nombreyear;
     }
 
-    public Date getFechaInicio() {
-        return fechaInicio;
+    public Date getFechainicio() {
+        return fechainicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
-        this.fechaInicio = fechaInicio;
+    public void setFechainicio(Date fechainicio) {
+        this.fechainicio = fechainicio;
     }
 
-    public Date getFechaFin() {
-        return fechaFin;
+    public Date getFechafin() {
+        return fechafin;
     }
 
-    public void setFechaFin(Date fechaFin) {
-        this.fechaFin = fechaFin;
+    public void setFechafin(Date fechafin) {
+        this.fechafin = fechafin;
     }
 
     @XmlTransient

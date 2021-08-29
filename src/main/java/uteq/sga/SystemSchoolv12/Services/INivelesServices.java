@@ -17,4 +17,5 @@ public interface INivelesServices {
     public void guardar(Niveles actividad);
     public Niveles buscaById(Integer id);
     public void eliminar(Integer id);
+    public int total();
 }
