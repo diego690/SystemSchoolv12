@@ -150,57 +150,70 @@
 
                                                         <h2 th:text="${titulo}">Section title</h2>
 
-                                                        <form  th:object="${representante}" class="form-group " th:action="@{/Admin/Representante/save}" method="post"> 
+                                                        <form  th:object="${estudiante}" class="form-group " th:action="@{/Admin/Representante/save}" method="post"> 
                                                             <div class="form-group">
-                                                                <input th:field="*{representanteid}" type="hidden"/>
+                                                                <input th:field="*{idestudiante}" type="hidden"/>
                                                                 <label class="col-md-2" for="nombres">Nombres Representante</label>
-                                                                <input th:field="*{nombres}" type="text" class="form-control form-control-sm col-md-6" placeholder="Nombres Docente">
+                                                                <input th:field="*{carnetestudiante}" type="text" class="form-control form-control-sm col-md-6" placeholder="Nombres Docente">
                                                                     <small></small>
                                                             </div>
                                                             <div class="form-group">
                                                                
                                                                 <label class="col-md-2" for="apellidos">Apellidos Representante</label>
-                                                                <input th:field="*{apellidos}" type="text" class="form-control form-control-sm col-md-6" placeholder="Apellidos Docente">
+                                                                <input th:field="*{nombresestudiante}" type="text" class="form-control form-control-sm col-md-6" placeholder="Apellidos Docente">
                                                                     <small></small>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="col-md-2" for="cedula">Numero de Cedula</label>
-                                                                <input  th:field="*{cedula}" type="text" class="form-control form-control-sm col-md-6" id="cedula" placeholder="numero de Cedula">
+                                                                <input  th:field="*{apellidosestudiante}" type="text" class="form-control form-control-sm col-md-6" id="cedula" placeholder="numero de Cedula">
                                                                     <small></small>
                                                             </div>
                                                             
                                                              <div class="form-group">
                                                                 <label class="col-md-2" for="direccion">Direccion Domicilio</label>
-                                                                <input  th:field="*{direccion}" type="text" class="form-control form-control-sm col-md-6" id="direccion" placeholder="Direccion Domicilio">
+                                                                <input  th:field="*{cedulaestudiante}" type="text" class="form-control form-control-sm col-md-6" id="direccion" placeholder="Direccion Domicilio">
                                                                     <small></small>
                                                              </div>
                                                              <div class="form-group">
                                                                 <label class="col-md-2" for="correo">Email</label>
-                                                                <input  th:field="*{correo}" type="email" class="form-control form-control-sm col-md-6" id="correo" placeholder="Correo Electronico">
+                                                                <input  th:field="*{correoestudiante}" type="email" class="form-control form-control-sm col-md-6" id="correo" placeholder="Correo Electronico">
                                                                     <small></small>
                                                              </div>
                                                              <div class="form-group">
                                                                 <label class="col-md-2" for="sexo">Sexo</label>
                                                                 <select  th:field="*{sexo}" class="form-control form-control-sm col-md-4" id="sexo">
                                                                     <option >Seleccione su Sexo</option>
-                                                                    <option value="H">Hombre</option>
-                                                                    <option value="M">Mujer</option>
+                                                                    <option th:value="H">Hombre</option>
+                                                                    <option th:value="M">Mujer</option>
                                                                 </select>    <small></small>
                                                              </div>
                                                              <div class="form-group">
                                                                 <label class="col-md-2" for="telefono">Telefono Movil - Domicilio</label>
-                                                                <input  th:field="*{telefono}" type="text" class="form-control form-control-sm col-md-6" id="telefono" placeholder="DIreccion vivienda">
+                                                                <input  th:field="*{celularestudiante}" type="text" class="form-control form-control-sm col-md-6" id="telefono" placeholder="DIreccion vivienda">
                                                                     <small></small>
                                                              </div>
                                                              <div class="form-group">
                                                                 <label class="col-md-2" for="Parentesco">Parentesco</label>
-                                                                <input  th:field="*{parentesco}" type="text" class="form-control form-control-sm col-md-6" id="parentesco" placeholder="Numero Celular Movil">
+                                                                <input  th:field="*{telefonoestudiante}" type="text" class="form-control form-control-sm col-md-6" id="parentesco" placeholder="Numero Celular Movil">
                                                                     <small></small>
                                                              </div>
                                                              <div class="form-group">
                                                                 <label class="col-md-2" for="movil"># Numero de Telefono</label>
-                                                                <input  th:field="*{movil}" type="text" class="form-control form-control-sm col-md-6" id="movil" placeholder="Numero Celular Movil">
+                                                                <input  th:field="*{direccionestudiante}" type="text" class="form-control form-control-sm col-md-6" id="movil" placeholder="Numero Celular Movil">
                                                                     <small></small>
+                                                             </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-2" for="movil"># Numero de Telefono</label>
+                                                                <input  th:field="*{fnacimiento}" type="date" class="form-control form-control-sm col-md-6" id="movil" placeholder="Numero Celular Movil">
+                                                                    <small></small>
+                                                             </div>
+                                                             <div class="form-group">
+                                                                <label class="col-md-2" for="sexo">Sexo</label>
+                                                                <select  th:field="*{representante_id}" class="form-control form-control-sm col-md-4" id="sexo">
+                                                                   <option th:each="repre{representante}" th:value="${repre.representante_id}"
+                                                                            th:text="${repre.nombres}+' '+${repre.apellidos}"></option>
+                                                                    
+                                                                </select>    <small></small>
                                                              </div><br/>
                                                             <input class="w-auto btn btn-lg btn-primary" type="submit" value="Guardar"/>
                                                             <a th:href="@{/Admin/Representante/listar}"><input class="w-auto btn btn-lg btn-primary" type="button" value="Cancelar"/></a>

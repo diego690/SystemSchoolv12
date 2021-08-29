@@ -6,8 +6,10 @@
 package uteq.sga.SystemSchoolv12.Implements;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uteq.sga.SystemSchoolv12.Entity.Estudiantes;
+import uteq.sga.SystemSchoolv12.Repositorys.IEstudiantesRepository;
 import uteq.sga.SystemSchoolv12.Services.IEstudiantesServices;
 
 /**
@@ -16,25 +18,28 @@ import uteq.sga.SystemSchoolv12.Services.IEstudiantesServices;
  */
 @Service
 public class EstudiantesImpl implements IEstudiantesServices{
+    
+    @Autowired
+    private IEstudiantesRepository esturepo;
 
     @Override
     public List<Estudiantes> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (List<Estudiantes>) esturepo.findAll();
     }
 
     @Override
     public void guardar(Estudiantes actividad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        esturepo.save(actividad);
     }
 
     @Override
     public Estudiantes buscaById(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return esturepo.findById(id).orElse(null);
     }
 
     @Override
     public void eliminar(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        esturepo.deleteById(id);
     }
     
 }
