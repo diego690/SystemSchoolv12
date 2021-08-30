@@ -6,8 +6,10 @@
 package uteq.sga.SystemSchoolv12.Implements;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uteq.sga.SystemSchoolv12.Entity.YearsAcademicos;
+import uteq.sga.SystemSchoolv12.Repositorys.IYearsAcademicosRepository;
 import uteq.sga.SystemSchoolv12.Services.IYearsAcademicosServices;
 
 /**
@@ -16,25 +18,28 @@ import uteq.sga.SystemSchoolv12.Services.IYearsAcademicosServices;
  */
 @Service
 public class YearsAcademicosImpl implements IYearsAcademicosServices{
+    
+    @Autowired
+    private IYearsAcademicosRepository yarepo;
 
     @Override
     public List<YearsAcademicos> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (List<YearsAcademicos>) yarepo.findAll();
     }
 
     @Override
     public void guardar(YearsAcademicos actividad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        yarepo.save(actividad);
     }
 
     @Override
     public YearsAcademicos buscaById(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return yarepo.findById(id).orElse(null);
     }
 
     @Override
     public void eliminar(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        yarepo.deleteById(id);
     }
     
 }

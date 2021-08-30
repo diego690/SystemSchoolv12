@@ -6,8 +6,10 @@
 package uteq.sga.SystemSchoolv12.Implements;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uteq.sga.SystemSchoolv12.Entity.Pagos;
+import uteq.sga.SystemSchoolv12.Repositorys.IPagosRepository;
 import uteq.sga.SystemSchoolv12.Services.IPagosServices;
 
 /**
@@ -16,25 +18,28 @@ import uteq.sga.SystemSchoolv12.Services.IPagosServices;
  */
 @Service
 public class PagosImpl implements IPagosServices{
+    
+    @Autowired
+    private IPagosRepository pgrepo;
 
     @Override
     public List<Pagos> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (List<Pagos>) pgrepo.findAll();
     }
 
     @Override
     public void guardar(Pagos actividad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        pgrepo.save(actividad);
     }
 
     @Override
     public Pagos buscaById(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return pgrepo.findById(id).orElse(null);
     }
 
     @Override
     public void eliminar(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        pgrepo.deleteById(id);
     }
     
 }

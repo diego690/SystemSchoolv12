@@ -23,6 +23,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -50,9 +51,11 @@ public class YearsAcademicos implements Serializable {
     private String nombreyear;
     @Column(name = "fechainicio")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechainicio;
     @Column(name = "fechafin")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechafin;
     @OneToMany(mappedBy = "idyearacademico")
     private Collection<Secciones> seccionesCollection;

@@ -41,7 +41,7 @@
                                         <body>
 
                                             <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-                                                <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" th:href="@{/Admin/Niveles/Dashboard}">Company name</a>
+                                                <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Company name</a>
                                                 <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                                                     <span class="navbar-toggler-icon"></span>
                                                 </button>
@@ -59,7 +59,7 @@
                                                         <div class="position-sticky pt-3">
                                                             <ul class="nav flex-column">
                                                                 <li class="nav-item">
-                                                                    <a class="nav-link active" aria-current="page" th:href="@{/Admin/Niveles/Dashboard}">
+                                                                    <a class="nav-link active" aria-current="page" th:href="@{/home}">
                                                                         <span data-feather="home"></span>
                                                                         Dashboard
                                                                     </a>
@@ -131,7 +131,7 @@
                                                         </div>
                                                     </nav>
 
-                                                    <main class="col-md-12 ms-sm-auto col-lg-10 px-md-5">
+                                                    <main class="col-md-10 ms-sm-auto col-lg-10 px-md-5">
                                                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                                                             <h1 class="h2">Dashboard</h1>
                                                             <div class="btn-toolbar mb-2 mb-md-0">
@@ -150,60 +150,27 @@
 
                                                         <h2 th:text="${titulo}">Section title</h2>
 
-                                                        <form  th:object="${representante}" class="table-responsive"  th:action="@{/Admin/Representante/save}" method="post"> 
+                                                        <form class="form-control col-md-3" th:object="${yacademico}" th:action="@{/Admin/Years/save}" method="post"> 
                                                             <div class="form-group">
-                                                                <input th:field="*{representanteid}" type="hidden"/>
-                                                                <label class="col-md-2" for="nombres">Nombres Representante</label>
-                                                                <input th:field="*{nombres}" type="text" class="form-control form-control-sm col-md-6" placeholder="Nombres Docente">
+                                                               <input th:field="*{idyearacademico}" type="hidden"/>
+                                                                <label class="col-md-2" for="nombreyear">Nombre Periodo Lectivo</label>
+                                                                <input th:field="*{nombreyear}" type="text" class="form-control form-control-sm col-md-6" id="nombreyear" placeholder="Periodo Lectivo">
                                                                     <small></small>
                                                             </div>
                                                             <div class="form-group">
-                                                               
-                                                                <label class="col-md-2" for="apellidos">Apellidos Representante</label>
-                                                                <input th:field="*{apellidos}" type="text" class="form-control form-control-sm col-md-6" placeholder="Apellidos Docente">
+                                                                <label class="col-md-2" for="fechainicio">Fecha de Inicio Periodo</label>
+                                                                <input  th:field="*{fechainicio}" type="date" class="form-control form-control-sm col-md-6" id="fechainicio">
                                                                     <small></small>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label class="col-md-2" for="cedula">Numero de Cedula</label>
-                                                                <input  th:field="*{cedula}" type="text" class="form-control form-control-sm col-md-6" id="cedula" placeholder="numero de Cedula">
+                                                                <label class="col-md-2" for="fechafin">Fecha de Finalizacion Periodo</label>
+                                                                <input  th:field="*{fechafin}" type="date" class="form-control form-control-sm col-md-6" id="fechafin">
                                                                     <small></small>
+                                                                <br>
                                                             </div>
-                                                            
-                                                             <div class="form-group">
-                                                                <label class="col-md-2" for="direccion">Direccion Domicilio</label>
-                                                                <input  th:field="*{direccion}" type="text" class="form-control form-control-sm col-md-6" id="direccion" placeholder="Direccion Domicilio">
-                                                                    <small></small>
-                                                             </div>
-                                                             <div class="form-group">
-                                                                <label class="col-md-2" for="correo">Email</label>
-                                                                <input  th:field="*{correo}" type="email" class="form-control form-control-sm col-md-6" id="correo" placeholder="Correo Electronico">
-                                                                    <small></small>
-                                                             </div>
-                                                             <div class="form-group">
-                                                                <label class="col-md-2" for="sexo">Sexo</label>
-                                                                <select  th:field="*{sexo}" class="form-control form-control-sm col-md-4" id="sexo">
-                                                                    <option >Seleccione su Sexo</option>
-                                                                    <option value="H">Hombre</option>
-                                                                    <option value="M">Mujer</option>
-                                                                </select>    <small></small>
-                                                             </div>
-                                                             <div class="form-group">
-                                                                <label class="col-md-2" for="telefono">Telefono Movil - Domicilio</label>
-                                                                <input  th:field="*{telefono}" type="text" class="form-control form-control-sm col-md-6" id="telefono" placeholder="DIreccion vivienda">
-                                                                    <small></small>
-                                                             </div>
-                                                             <div class="form-group">
-                                                                <label class="col-md-2" for="Parentesco">Parentesco</label>
-                                                                <input  th:field="*{parentesco}" type="text" class="form-control form-control-sm col-md-6" id="parentesco" placeholder="Numero Celular Movil">
-                                                                    <small></small>
-                                                             </div>
-                                                             <div class="form-group">
-                                                                <label class="col-md-2" for="movil"># Numero de Telefono</label>
-                                                                <input  th:field="*{movil}" type="text" class="form-control form-control-sm col-md-6" id="movil" placeholder="Numero Celular Movil">
-                                                                    <small></small>
-                                                             </div><br/>
+                                                             <br/>
                                                             <input class="w-auto btn btn-lg btn-primary" type="submit" value="Guardar"/>
-                                                            <a th:href="@{/Admin/Representante/listar}"><input class="w-auto btn btn-lg btn-primary" type="button" value="Cancelar"/></a>
+                                                            <a th:href="@{/Admin/Years/listar}"><input class="w-auto btn btn-lg btn-primary" type="button" value="Cancelar"/></a>
                                                         </form>
 
                                                     </main>

@@ -6,8 +6,10 @@
 package uteq.sga.SystemSchoolv12.Implements;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uteq.sga.SystemSchoolv12.Entity.Tipodocumento;
+import uteq.sga.SystemSchoolv12.Repositorys.ITipoDocumentoRepository;
 import uteq.sga.SystemSchoolv12.Services.ITipoDocumentoServices;
 
 /**
@@ -16,25 +18,28 @@ import uteq.sga.SystemSchoolv12.Services.ITipoDocumentoServices;
  */
 @Service
 public class TipoDocumentoImpl implements ITipoDocumentoServices{
+    
+    @Autowired
+    private ITipoDocumentoRepository tdrepo;
 
     @Override
     public List<Tipodocumento> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (List<Tipodocumento>) tdrepo.findAll();
     }
 
     @Override
     public void guardar(Tipodocumento actividad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        tdrepo.save(actividad);
     }
 
     @Override
     public Tipodocumento buscaById(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return tdrepo.findById(id).orElse(null);
     }
 
     @Override
     public void eliminar(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        tdrepo.deleteById(id);
     }
     
 }

@@ -131,7 +131,7 @@
                                                         </div>
                                                     </nav>
 
-                                                    <main class="col-md-12 ms-sm-auto col-lg-10 px-md-5">
+                                                    <main class="col-md-10 ms-sm-auto col-lg-10 px-md-5">
                                                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                                                             <h1 class="h2">Dashboard</h1>
                                                             <div class="btn-toolbar mb-2 mb-md-0">
@@ -150,60 +150,17 @@
 
                                                         <h2 th:text="${titulo}">Section title</h2>
 
-                                                        <form  th:object="${representante}" class="table-responsive"  th:action="@{/Admin/Representante/save}" method="post"> 
+                                                        <form class="form-control col-md-3" th:object="${tdocumento}" th:action="@{/Admin/Years/save}" method="post"> 
                                                             <div class="form-group">
-                                                                <input th:field="*{representanteid}" type="hidden"/>
-                                                                <label class="col-md-2" for="nombres">Nombres Representante</label>
-                                                                <input th:field="*{nombres}" type="text" class="form-control form-control-sm col-md-6" placeholder="Nombres Docente">
+                                                               <input th:field="*{idtipodocu}" type="hidden"/>
+                                                                <label class="col-md-2" for="Documento">Nombre del Tipo de Documento</label>
+                                                                <input th:field="*{documento}" type="text" class="form-control form-control-sm col-md-6" id="nombreyear" placeholder="Periodo Lectivo">
                                                                     <small></small>
                                                             </div>
-                                                            <div class="form-group">
-                                                               
-                                                                <label class="col-md-2" for="apellidos">Apellidos Representante</label>
-                                                                <input th:field="*{apellidos}" type="text" class="form-control form-control-sm col-md-6" placeholder="Apellidos Docente">
-                                                                    <small></small>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="col-md-2" for="cedula">Numero de Cedula</label>
-                                                                <input  th:field="*{cedula}" type="text" class="form-control form-control-sm col-md-6" id="cedula" placeholder="numero de Cedula">
-                                                                    <small></small>
-                                                            </div>
-                                                            
-                                                             <div class="form-group">
-                                                                <label class="col-md-2" for="direccion">Direccion Domicilio</label>
-                                                                <input  th:field="*{direccion}" type="text" class="form-control form-control-sm col-md-6" id="direccion" placeholder="Direccion Domicilio">
-                                                                    <small></small>
-                                                             </div>
-                                                             <div class="form-group">
-                                                                <label class="col-md-2" for="correo">Email</label>
-                                                                <input  th:field="*{correo}" type="email" class="form-control form-control-sm col-md-6" id="correo" placeholder="Correo Electronico">
-                                                                    <small></small>
-                                                             </div>
-                                                             <div class="form-group">
-                                                                <label class="col-md-2" for="sexo">Sexo</label>
-                                                                <select  th:field="*{sexo}" class="form-control form-control-sm col-md-4" id="sexo">
-                                                                    <option >Seleccione su Sexo</option>
-                                                                    <option value="H">Hombre</option>
-                                                                    <option value="M">Mujer</option>
-                                                                </select>    <small></small>
-                                                             </div>
-                                                             <div class="form-group">
-                                                                <label class="col-md-2" for="telefono">Telefono Movil - Domicilio</label>
-                                                                <input  th:field="*{telefono}" type="text" class="form-control form-control-sm col-md-6" id="telefono" placeholder="DIreccion vivienda">
-                                                                    <small></small>
-                                                             </div>
-                                                             <div class="form-group">
-                                                                <label class="col-md-2" for="Parentesco">Parentesco</label>
-                                                                <input  th:field="*{parentesco}" type="text" class="form-control form-control-sm col-md-6" id="parentesco" placeholder="Numero Celular Movil">
-                                                                    <small></small>
-                                                             </div>
-                                                             <div class="form-group">
-                                                                <label class="col-md-2" for="movil"># Numero de Telefono</label>
-                                                                <input  th:field="*{movil}" type="text" class="form-control form-control-sm col-md-6" id="movil" placeholder="Numero Celular Movil">
-                                                                    <small></small>
-                                                             </div><br/>
+                                                           
+                                                             <br/>
                                                             <input class="w-auto btn btn-lg btn-primary" type="submit" value="Guardar"/>
-                                                            <a th:href="@{/Admin/Representante/listar}"><input class="w-auto btn btn-lg btn-primary" type="button" value="Cancelar"/></a>
+                                                            <a th:href="@{/Admin/TipoDocumento/listar}"><input class="w-auto btn btn-lg btn-primary" type="button" value="Cancelar"/></a>
                                                         </form>
 
                                                     </main>
@@ -217,6 +174,6 @@
                                             <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
                                             <script th:src="@{/js/bootstrap.js}"></script>
 
-                                            <script th:src="@{https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js}" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
+                                            <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
                                         </body>
                                         </html>
