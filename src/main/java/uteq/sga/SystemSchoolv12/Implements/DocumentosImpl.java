@@ -6,8 +6,10 @@
 package uteq.sga.SystemSchoolv12.Implements;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uteq.sga.SystemSchoolv12.Entity.Documentos;
+import uteq.sga.SystemSchoolv12.Repositorys.IDocumentosRepository;
 import uteq.sga.SystemSchoolv12.Services.IDocumentosServices;
 
 /**
@@ -16,25 +18,28 @@ import uteq.sga.SystemSchoolv12.Services.IDocumentosServices;
  */
 @Service
 public class DocumentosImpl implements IDocumentosServices{
+    
+    @Autowired
+    private IDocumentosRepository docurepo;
 
     @Override
     public List<Documentos> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (List<Documentos>) docurepo.findAll();
     }
 
     @Override
     public void guardar(Documentos actividad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        docurepo.save(actividad);
     }
 
     @Override
     public Documentos buscaById(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return docurepo.findById(id).orElse(null);
     }
 
     @Override
     public void eliminar(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        docurepo.deleteById(id);
     }
     
 }

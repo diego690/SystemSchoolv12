@@ -51,11 +51,11 @@ public class YearsAcademicos implements Serializable {
     private String nombreyear;
     @Column(name = "fechainicio")
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechainicio;
     @Column(name = "fechafin")
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechafin;
     @OneToMany(mappedBy = "idyearacademico")
     private Collection<Secciones> seccionesCollection;

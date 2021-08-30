@@ -13,12 +13,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -30,7 +33,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Documentos.findAll", query = "SELECT d FROM Documentos d"),
     @NamedQuery(name = "Documentos.findByIddocumento", query = "SELECT d FROM Documentos d WHERE d.iddocumento = :iddocumento"),
-    @NamedQuery(name = "Documentos.findByIdtipodocumento", query = "SELECT d FROM Documentos d WHERE d.idtipodocumento = :idtipodocumento"),
     @NamedQuery(name = "Documentos.findByDescripcion", query = "SELECT d FROM Documentos d WHERE d.descripcion = :descripcion"),
     @NamedQuery(name = "Documentos.findByDocumento", query = "SELECT d FROM Documentos d WHERE d.documento = :documento"),
     @NamedQuery(name = "Documentos.findByIdusuario", query = "SELECT d FROM Documentos d WHERE d.idusuario = :idusuario"),
@@ -43,9 +45,6 @@ public class Documentos implements Serializable {
     @Basic(optional = false)
     @Column(name = "iddocumento")
     private Integer iddocumento;
-    @Basic(optional = false)
-    @Column(name = "idtipodocumento")
-    private int idtipodocumento;
     @Column(name = "descripcion")
     private String descripcion;
     @Column(name = "documento")
@@ -54,7 +53,11 @@ public class Documentos implements Serializable {
     private Integer idusuario;
     @Column(name = "fechasubida")
     @Temporal(TemporalType.DATE)
+     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechasubida;
+    @JoinColumn(name = "idtipodocumento", referencedColumnName = "idtipodocu")
+    @ManyToOne(optional = false)
+    private Tipodocumento idtipodocumento;
 
     public Documentos() {
     }
@@ -63,25 +66,12 @@ public class Documentos implements Serializable {
         this.iddocumento = iddocumento;
     }
 
-    public Documentos(Integer iddocumento, int idtipodocumento) {
-        this.iddocumento = iddocumento;
-        this.idtipodocumento = idtipodocumento;
-    }
-
     public Integer getIddocumento() {
         return iddocumento;
     }
 
     public void setIddocumento(Integer iddocumento) {
         this.iddocumento = iddocumento;
-    }
-
-    public int getIdtipodocumento() {
-        return idtipodocumento;
-    }
-
-    public void setIdtipodocumento(int idtipodocumento) {
-        this.idtipodocumento = idtipodocumento;
     }
 
     public String getDescripcion() {
@@ -114,6 +104,14 @@ public class Documentos implements Serializable {
 
     public void setFechasubida(Date fechasubida) {
         this.fechasubida = fechasubida;
+    }
+
+    public Tipodocumento getIdtipodocumento() {
+        return idtipodocumento;
+    }
+
+    public void setIdtipodocumento(Tipodocumento idtipodocumento) {
+        this.idtipodocumento = idtipodocumento;
     }
 
     @Override

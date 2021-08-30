@@ -6,7 +6,9 @@
 package uteq.sga.SystemSchoolv12.Entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,8 +16,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -38,6 +42,8 @@ public class Tipodocumento implements Serializable {
     private Integer idtipodocu;
     @Column(name = "documento")
     private String documento;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idtipodocumento")
+    private Collection<Documentos> documentosCollection;
 
     public Tipodocumento() {
     }
@@ -60,6 +66,15 @@ public class Tipodocumento implements Serializable {
 
     public void setDocumento(String documento) {
         this.documento = documento;
+    }
+
+    @XmlTransient
+    public Collection<Documentos> getDocumentosCollection() {
+        return documentosCollection;
+    }
+
+    public void setDocumentosCollection(Collection<Documentos> documentosCollection) {
+        this.documentosCollection = documentosCollection;
     }
 
     @Override

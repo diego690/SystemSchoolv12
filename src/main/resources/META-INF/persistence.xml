@@ -2,38 +2,38 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="uteq.sga_SystemSchoolv12_jar_0.0.1-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>uteq.sga.SystemSchoolv12.Entity.PlanificacionTareas</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.Cuatrimestres</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.Niveles</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.MaterialDidactico</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.Evaluaciones</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.Secciones</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.PlanEstudio</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.NumerosAsignaciones</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Asignaturas</class>
     <class>uteq.sga.SystemSchoolv12.Entity.DocumentoRepresentante</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.Estudiantes</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.Documentos</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.Horarioclase</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Time</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.NumerosAsignaciones</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Cuatrimestres</class>
     <class>uteq.sga.SystemSchoolv12.Entity.Grupos</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.Docentes</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.Asignaciones</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.Mensajes</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.Tipodocumento</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.YearsAcademicos</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.Horarios</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.Carreras</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Secciones</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Estudiantes</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Representante</class>
     <class>uteq.sga.SystemSchoolv12.Entity.DocumentosEstudiante</class>
     <class>uteq.sga.SystemSchoolv12.Entity.InscripcionesAsignaturas</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.Representante</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.Asignaturas</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.YearsAcademicos</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Tipodocumento</class>
     <class>uteq.sga.SystemSchoolv12.Entity.EntregaTareas</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.Usuarios</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.Matriculacion</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.Pagos</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.Materias</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Docentes</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Horarios</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.PlanEstudio</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Mensajes</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Horarioclase</class>
     <class>uteq.sga.SystemSchoolv12.Entity.Aula</class>
-    <class>uteq.sga.SystemSchoolv12.Entity.Time</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Usuarios</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Asignaciones</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Documentos</class>
     <class>uteq.sga.SystemSchoolv12.Entity.Turnos</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Matriculacion</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.PlanificacionTareas</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Niveles</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Pagos</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Carreras</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.MaterialDidactico</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Materias</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Evaluaciones</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://190.15.134.7:8080/Sis_SGA"/>
       <property name="javax.persistence.jdbc.user" value="appti"/>
