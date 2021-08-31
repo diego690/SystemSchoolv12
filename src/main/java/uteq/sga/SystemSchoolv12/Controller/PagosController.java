@@ -45,7 +45,7 @@ public class PagosController {
         List<Estudiantes> estu = estuserv.listarTodos();
         model.addAttribute("titulo", "Registro nuevo Pago de Aranceles");
         model.addAttribute("pagos", pagos);
-        model.addAttribute("estudiante", estuserv);
+        model.addAttribute("estudiante", estu);
         return "/Administrator/PagosAdd";
     }
     @PostMapping("/save")
@@ -60,7 +60,7 @@ public class PagosController {
         List<Estudiantes> estu = estuserv.listarTodos();
         model.addAttribute("titulo", "Editar Pago de Aranceles");
         model.addAttribute("pagos", pagos);
-        model.addAttribute("estudiante", estuserv);
+        model.addAttribute("estudiante", estu);
         return "/Administrator/PagosAdd";
     }
     @RequestMapping("/delete/{id}")

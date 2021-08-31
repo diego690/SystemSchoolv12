@@ -209,14 +209,14 @@
                                                              </div>
                                                              <div class="form-group">
                                                                 <label class="col-md-2" for="representante">Representante</label>
-                                                                <select  th:field="*{representanteId}" class="form-control form-control-sm col-md-4" id="sexo">
+                                                                <select  th:field="*{representanteid}" class="form-control form-control-sm col-md-4" id="sexo">
                                                                    <option th:each="repre:${representante}" th:value="${repre.representanteid}"
                                                                             th:text="${repre.nombres}+' '+${repre.apellidos}"></option>
                                                                     
                                                                 </select>    <small></small>
                                                              </div><br/>
                                                             <input class="w-auto btn btn-lg btn-primary" type="submit" value="Guardar"/>
-                                                            <a th:href="@{/Admin/Representante/listar}"><input class="w-auto btn btn-lg btn-primary" type="button" value="Cancelar"/></a>
+                                                            <a th:href="@{/Admin/Estudiante/listar}"><input class="w-auto btn btn-lg btn-primary" type="button" value="Cancelar"/></a>
                                                         </form>
 
                                                     </main>

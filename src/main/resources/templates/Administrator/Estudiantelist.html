@@ -176,11 +176,11 @@
               <td th:text="${atv.celularestudiante}">placeholder</td>
               <td th:text="${atv.telefonoestudiante}">placeholder</td>
               <td th:text="${atv.direccionestudiante}">placeholder</td>
-              <td th:text="${atv.representanteId.apellidos}+ ${atv.representanteId.nombres}">placeholder</td>
+              <td th:text="${atv.representanteid.apellidos}+ ${atv.representanteid.nombres}">placeholder</td>
               
               <td>
-                  <a class="btn btn-outline-secondary" th:href="@{/Admin/Representante/edit/}+${atv.idestudiante}">Edit</a>
-                  <a class="btn btn-outline-secondary" th:href="@{/Admin/Representante/delete/}+${atv.idestudiante}">Delete</a>
+                  <a class="btn btn-outline-secondary" th:href="@{/Admin/Estudiante/edit/}+${atv.idestudiante}">Edit</a>
+                  <a class="btn btn-outline-secondary" th:href="@{/Admin/Estudiante/delete/}+${atv.idestudiante}">Delete</a>
               </td>
             </tr>
            

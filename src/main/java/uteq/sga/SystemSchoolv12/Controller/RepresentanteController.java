@@ -53,7 +53,7 @@ public class RepresentanteController {
         Representante repre = represerv.buscaById(id);
         model.addAttribute("titulo", "Editar Docente");
         model.addAttribute("representante", repre);
-        return "/Administrator/DocentesAdd";
+        return "/Administrator/RepresentanteAdd";
     }
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable("id") Integer id,Model model){
