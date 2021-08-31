@@ -21,6 +21,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -52,6 +53,7 @@ public class Pagos implements Serializable {
     private String estado;
     @Column(name = "fechapago")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechapago;
     @JoinColumn(name = "idestudiante", referencedColumnName = "idestudiante")
     @ManyToOne

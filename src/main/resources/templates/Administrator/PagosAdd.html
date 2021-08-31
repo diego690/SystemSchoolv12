@@ -161,7 +161,7 @@
                                                                 <label class="col-md-2" for="estudiante">Estudiante</label>
                                                                 <select th:field="*{idestudiante}" class="form-control form-control-sm col-md-6">
                                                                     <option th:each="tipousu:${estudiante}" th:value="${tipousu.idestudiante}"
-                                                                            th:text="${tipousu.apellidosestudiante}+${tipousu.nombresestudiante}"></option>
+                                                                            th:text="${tipousu.apellidosestudiante}+' '+${tipousu.nombresestudiante}"></option>
                                                                 </select>
 
                                                             </div>
@@ -180,7 +180,7 @@
                                                             <div class="form-group">
 
                                                                 <label class="col-md-2" for="fechapago">Fecha de Pago</label>
-                                                                <input th:field="*{fechapago}" type="text" class="form-control form-control-sm col-md-6"  placeholder="Fecha de Pago">
+                                                                <input th:field="*{fechapago}" type="date" class="form-control form-control-sm col-md-6"  placeholder="Fecha de Pago">
 
                                                             </div>
                                                             <br/>
