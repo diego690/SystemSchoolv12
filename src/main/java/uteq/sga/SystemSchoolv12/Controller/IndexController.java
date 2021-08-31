@@ -27,11 +27,11 @@ public class IndexController {
     @RequestMapping("/")
     public String page(Model model) {
         model.addAttribute("attribute", "value");
-        return "index";
+        return "/index";
     }
     @GetMapping("/login")
     public String login(){
-        return "login";
+        return "login2";
     }
     
     @PostMapping("/init")
@@ -62,5 +62,7 @@ public class IndexController {
     public String logout(){
         return "login";
     }
+    
+    
     
 }
