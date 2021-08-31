@@ -151,7 +151,7 @@
                                                         <h2 th:text="${titulo}">Section title</h2>
 
                                                         <form  th:object="${estudiante}" class="form-group " th:action="@{/Admin/Representante/save}" method="post"> 
-                                                            <div class="form-group">
+                                                            <div class="form-group col-md-5 mb-sm-3">
                                                                 <input th:field="*{idestudiante}" type="hidden"/>
                                                                 <label class="col-md-2" for="nombres">Carnet Estudiante</label>
                                                                 <input th:field="*{carnetestudiante}" type="text" class="form-control form-control-sm col-md-6" >
@@ -181,10 +181,10 @@
                                                              </div>
                                                              <div class="form-group">
                                                                 <label class="col-md-2" for="sexo">Sexo</label>
-                                                                <select  th:field="*{sexo}" class="form-control form-control-sm col-md-4" id="sexo">
+                                                                <select   class="form-control form-control-sm col-md-4" id="sexo">
                                                                     <option >Seleccione su Sexo</option>
-                                                                    <option th:value="H">Hombre</option>
-                                                                    <option th:value="M">Mujer</option>
+                                                                    <option field="*{sexo}" value="H">Hombre</option>
+                                                                    <option field="*{sexo}" value="M">Mujer</option>
                                                                 </select>    <small></small>
                                                              </div>
                                                              <div class="form-group">
@@ -208,9 +208,9 @@
                                                                     <small></small>
                                                              </div>
                                                              <div class="form-group">
-                                                                <label class="col-md-2" for="sexo">Representante</label>
-                                                                <select  th:field="*{representante_id}" class="form-control form-control-sm col-md-4" id="sexo">
-                                                                   <option th:each="repre{representante}" th:value="${repre.representante_id}"
+                                                                <label class="col-md-2" for="representante">Representante</label>
+                                                                <select  th:field="*{representanteId}" class="form-control form-control-sm col-md-4" id="sexo">
+                                                                   <option th:each="repre:${representante}" th:value="${repre.representanteid}"
                                                                             th:text="${repre.nombres}+' '+${repre.apellidos}"></option>
                                                                     
                                                                 </select>    <small></small>

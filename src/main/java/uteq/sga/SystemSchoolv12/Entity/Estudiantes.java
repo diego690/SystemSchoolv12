@@ -95,7 +95,7 @@ public class Estudiantes implements Serializable {
     private Collection<EntregaTareas> entregaTareasCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idestudiante")
     private Collection<Evaluaciones> evaluacionesCollection;
-    @JoinColumn(name = "representante_id", referencedColumnName = "representanteid")
+    @JoinColumn(name = "representanteid", referencedColumnName = "representanteid")
     @ManyToOne
     private Representante representanteId;
     @OneToMany(mappedBy = "idestudiante")

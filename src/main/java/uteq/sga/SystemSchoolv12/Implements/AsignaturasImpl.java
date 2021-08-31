@@ -6,8 +6,10 @@
 package uteq.sga.SystemSchoolv12.Implements;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uteq.sga.SystemSchoolv12.Entity.Asignaturas;
+import uteq.sga.SystemSchoolv12.Repositorys.IAsiganaturasRepository;
 import uteq.sga.SystemSchoolv12.Services.IAsignaturaServices;
 
 /**
@@ -16,25 +18,28 @@ import uteq.sga.SystemSchoolv12.Services.IAsignaturaServices;
  */
 @Service
 public class AsignaturasImpl implements IAsignaturaServices{
+    
+    @Autowired
+    private IAsiganaturasRepository asiRepo;
 
     @Override
     public List<Asignaturas> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (List<Asignaturas>) asiRepo.findAll();
     }
 
     @Override
     public void guardar(Asignaturas actividad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        asiRepo.save(actividad);
     }
 
     @Override
     public Asignaturas buscaById(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return asiRepo.findById(id).orElse(null);
     }
 
     @Override
     public void eliminar(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        asiRepo.deleteById(id);
     }
     
 }

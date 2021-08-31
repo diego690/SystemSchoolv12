@@ -6,8 +6,10 @@
 package uteq.sga.SystemSchoolv12.Implements;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uteq.sga.SystemSchoolv12.Entity.EntregaTareas;
+import uteq.sga.SystemSchoolv12.Repositorys.IEntregaTareasRepository;
 import uteq.sga.SystemSchoolv12.Services.IEntregaTareasServices;
 
 /**
@@ -16,25 +18,28 @@ import uteq.sga.SystemSchoolv12.Services.IEntregaTareasServices;
  */
 @Service
 public class EntregaTareasImpl implements IEntregaTareasServices{
+    
+    @Autowired
+    private IEntregaTareasRepository entregatarepo;
 
     @Override
     public List<EntregaTareas> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (List<EntregaTareas>) entregatarepo.findAll();
     }
 
     @Override
     public void guardar(EntregaTareas actividad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        entregatarepo.save(actividad);
     }
 
     @Override
     public EntregaTareas buscaById(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return entregatarepo.findById(id).orElse(null);
     }
 
     @Override
     public void eliminar(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       entregatarepo.deleteById(id);
     }
     
 }
