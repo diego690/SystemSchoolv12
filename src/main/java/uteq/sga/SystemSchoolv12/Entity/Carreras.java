@@ -45,6 +45,8 @@ public class Carreras implements Serializable {
     private String nombrecarrera;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idcarrera")
     private Collection<PlanEstudio> planEstudioCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "curso")
+    private Collection<Matriculacion> matriculacionCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idcarrera")
     private Collection<Asignaciones> asignacionesCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idcarrera")
@@ -87,6 +89,15 @@ public class Carreras implements Serializable {
 
     public void setPlanEstudioCollection(Collection<PlanEstudio> planEstudioCollection) {
         this.planEstudioCollection = planEstudioCollection;
+    }
+
+    @XmlTransient
+    public Collection<Matriculacion> getMatriculacionCollection() {
+        return matriculacionCollection;
+    }
+
+    public void setMatriculacionCollection(Collection<Matriculacion> matriculacionCollection) {
+        this.matriculacionCollection = matriculacionCollection;
     }
 
     @XmlTransient

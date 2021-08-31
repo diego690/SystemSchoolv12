@@ -68,7 +68,7 @@ public class Representante implements Serializable {
     private String estado;
     @Column(name = "movil")
     private String movil;
-    @OneToMany(mappedBy = "representanteId")
+    @OneToMany(mappedBy = "representanteid")
     private Collection<Estudiantes> estudiantesCollection;
 
     public Representante() {

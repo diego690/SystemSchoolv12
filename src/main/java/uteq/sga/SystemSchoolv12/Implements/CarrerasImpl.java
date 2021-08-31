@@ -6,8 +6,10 @@
 package uteq.sga.SystemSchoolv12.Implements;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uteq.sga.SystemSchoolv12.Entity.Carreras;
+import uteq.sga.SystemSchoolv12.Repositorys.ICarreraRepository;
 import uteq.sga.SystemSchoolv12.Services.ICarrerasServices;
 
 /**
@@ -16,25 +18,28 @@ import uteq.sga.SystemSchoolv12.Services.ICarrerasServices;
  */
 @Service
 public class CarrerasImpl implements ICarrerasServices{
+    
+    @Autowired
+    private ICarreraRepository carrepo;
 
     @Override
     public List<Carreras> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (List<Carreras>) carrepo.findAll();
     }
 
     @Override
     public void guardar(Carreras actividad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        carrepo.save(actividad);
     }
 
     @Override
     public Carreras buscaById(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return carrepo.findById(id).orElse(null);
     }
 
     @Override
     public void eliminar(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        carrepo.deleteById(id);
     }
     
 }

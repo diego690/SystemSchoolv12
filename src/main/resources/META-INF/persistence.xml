@@ -34,6 +34,7 @@
     <class>uteq.sga.SystemSchoolv12.Entity.MaterialDidactico</class>
     <class>uteq.sga.SystemSchoolv12.Entity.Materias</class>
     <class>uteq.sga.SystemSchoolv12.Entity.Evaluaciones</class>
+    <class>uteq.sga.SystemSchoolv12.Entity.Notastareas</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://190.15.134.7:8080/Sis_SGA"/>
       <property name="javax.persistence.jdbc.user" value="appti"/>

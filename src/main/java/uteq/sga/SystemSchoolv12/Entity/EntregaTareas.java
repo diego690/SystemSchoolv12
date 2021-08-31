@@ -6,8 +6,10 @@
 package uteq.sga.SystemSchoolv12.Entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,10 +19,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -59,7 +64,10 @@ public class EntregaTareas implements Serializable {
     private String archivo;
     @Column(name = "fechaentrega")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaentrega;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "identregatareas")
+    private Collection<Notastareas> notastareasCollection;
     @JoinColumn(name = "idasignatura", referencedColumnName = "idasignatura")
     @ManyToOne(optional = false)
     private Asignaturas idasignatura;
@@ -128,6 +136,15 @@ public class EntregaTareas implements Serializable {
 
     public void setFechaentrega(Date fechaentrega) {
         this.fechaentrega = fechaentrega;
+    }
+
+    @XmlTransient
+    public Collection<Notastareas> getNotastareasCollection() {
+        return notastareasCollection;
+    }
+
+    public void setNotastareasCollection(Collection<Notastareas> notastareasCollection) {
+        this.notastareasCollection = notastareasCollection;
     }
 
     public Asignaturas getIdasignatura() {

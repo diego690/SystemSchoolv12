@@ -46,6 +46,8 @@ public class Aula implements Serializable {
     private String aula;
     @Column(name = "cantidadestudiantes")
     private Integer cantidadestudiantes;
+    @OneToMany(mappedBy = "aula")
+    private Collection<Matriculacion> matriculacionCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aulaid")
     private Collection<Asignaciones> asignacionesCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aulaid")
@@ -85,6 +87,15 @@ public class Aula implements Serializable {
 
     public void setCantidadestudiantes(Integer cantidadestudiantes) {
         this.cantidadestudiantes = cantidadestudiantes;
+    }
+
+    @XmlTransient
+    public Collection<Matriculacion> getMatriculacionCollection() {
+        return matriculacionCollection;
+    }
+
+    public void setMatriculacionCollection(Collection<Matriculacion> matriculacionCollection) {
+        this.matriculacionCollection = matriculacionCollection;
     }
 
     @XmlTransient

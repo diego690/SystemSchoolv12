@@ -13,13 +13,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -31,14 +33,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 @NamedQueries({
     @NamedQuery(name = "Matriculacion.findAll", query = "SELECT m FROM Matriculacion m"),
     @NamedQuery(name = "Matriculacion.findByIdmatriculacion", query = "SELECT m FROM Matriculacion m WHERE m.idmatriculacion = :idmatriculacion"),
-    @NamedQuery(name = "Matriculacion.findByIdestudiante", query = "SELECT m FROM Matriculacion m WHERE m.idestudiante = :idestudiante"),
-    @NamedQuery(name = "Matriculacion.findByCurso", query = "SELECT m FROM Matriculacion m WHERE m.curso = :curso"),
     @NamedQuery(name = "Matriculacion.findByEstadomatricula", query = "SELECT m FROM Matriculacion m WHERE m.estadomatricula = :estadomatricula"),
     @NamedQuery(name = "Matriculacion.findByDocumentosrevisados", query = "SELECT m FROM Matriculacion m WHERE m.documentosrevisados = :documentosrevisados"),
     @NamedQuery(name = "Matriculacion.findByFechainscripcion", query = "SELECT m FROM Matriculacion m WHERE m.fechainscripcion = :fechainscripcion"),
-    @NamedQuery(name = "Matriculacion.findByFechamatricula", query = "SELECT m FROM Matriculacion m WHERE m.fechamatricula = :fechamatricula"),
-    @NamedQuery(name = "Matriculacion.findByAniolectivo", query = "SELECT m FROM Matriculacion m WHERE m.aniolectivo = :aniolectivo"),
-    @NamedQuery(name = "Matriculacion.findByAula", query = "SELECT m FROM Matriculacion m WHERE m.aula = :aula")})
+    @NamedQuery(name = "Matriculacion.findByFechamatricula", query = "SELECT m FROM Matriculacion m WHERE m.fechamatricula = :fechamatricula")})
 public class Matriculacion implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,28 +45,28 @@ public class Matriculacion implements Serializable {
     @Basic(optional = false)
     @Column(name = "idmatriculacion")
     private Integer idmatriculacion;
-    @Basic(optional = false)
-    @Column(name = "idestudiante")
-    private int idestudiante;
-    @Basic(optional = false)
-    @Column(name = "curso")
-    private int curso;
     @Column(name = "estadomatricula")
     private String estadomatricula;
     @Column(name = "documentosrevisados")
     private String documentosrevisados;
     @Column(name = "fechainscripcion")
     @Temporal(TemporalType.DATE)
-     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechainscripcion;
     @Column(name = "fechamatricula")
     @Temporal(TemporalType.DATE)
-     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechamatricula;
-    @Column(name = "aniolectivo")
-    private Integer aniolectivo;
-    @Column(name = "aula")
-    private Integer aula;
+    @JoinColumn(name = "aula", referencedColumnName = "aulaid")
+    @ManyToOne
+    private Aula aula;
+    @JoinColumn(name = "curso", referencedColumnName = "idcarrera")
+    @ManyToOne(optional = false)
+    private Carreras curso;
+    @JoinColumn(name = "idestudiante", referencedColumnName = "idestudiante")
+    @OneToOne(optional = false)
+    private Estudiantes idestudiante;
+    @JoinColumn(name = "aniolectivo", referencedColumnName = "idyearacademico")
+    @ManyToOne
+    private YearsAcademicos aniolectivo;
 
     public Matriculacion() {
     }
@@ -77,34 +75,12 @@ public class Matriculacion implements Serializable {
         this.idmatriculacion = idmatriculacion;
     }
 
-    public Matriculacion(Integer idmatriculacion, int idestudiante, int curso) {
-        this.idmatriculacion = idmatriculacion;
-        this.idestudiante = idestudiante;
-        this.curso = curso;
-    }
-
     public Integer getIdmatriculacion() {
         return idmatriculacion;
     }
 
     public void setIdmatriculacion(Integer idmatriculacion) {
         this.idmatriculacion = idmatriculacion;
-    }
-
-    public int getIdestudiante() {
-        return idestudiante;
-    }
-
-    public void setIdestudiante(int idestudiante) {
-        this.idestudiante = idestudiante;
-    }
-
-    public int getCurso() {
-        return curso;
-    }
-
-    public void setCurso(int curso) {
-        this.curso = curso;
     }
 
     public String getEstadomatricula() {
@@ -139,20 +115,36 @@ public class Matriculacion implements Serializable {
         this.fechamatricula = fechamatricula;
     }
 
-    public Integer getAniolectivo() {
-        return aniolectivo;
-    }
-
-    public void setAniolectivo(Integer aniolectivo) {
-        this.aniolectivo = aniolectivo;
-    }
-
-    public Integer getAula() {
+    public Aula getAula() {
         return aula;
     }
 
-    public void setAula(Integer aula) {
+    public void setAula(Aula aula) {
         this.aula = aula;
+    }
+
+    public Carreras getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Carreras curso) {
+        this.curso = curso;
+    }
+
+    public Estudiantes getIdestudiante() {
+        return idestudiante;
+    }
+
+    public void setIdestudiante(Estudiantes idestudiante) {
+        this.idestudiante = idestudiante;
+    }
+
+    public YearsAcademicos getAniolectivo() {
+        return aniolectivo;
+    }
+
+    public void setAniolectivo(YearsAcademicos aniolectivo) {
+        this.aniolectivo = aniolectivo;
     }
 
     @Override

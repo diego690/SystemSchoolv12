@@ -23,7 +23,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
-import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -49,12 +48,10 @@ public class Time implements Serializable {
     @Basic(optional = false)
     @Column(name = "timestart")
     @Temporal(TemporalType.TIME)
-     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date timestart;
     @Basic(optional = false)
     @Column(name = "timeend")
     @Temporal(TemporalType.TIME)
-     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date timeend;
     @Basic(optional = false)
     @Column(name = "dias")

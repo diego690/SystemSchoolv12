@@ -19,6 +19,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -52,6 +53,7 @@ public class DocumentosEstudiante implements Serializable {
     private Integer idestudiante;
     @Column(name = "fechasubida")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechasubida;
 
     public DocumentosEstudiante() {

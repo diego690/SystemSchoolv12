@@ -20,6 +20,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -89,6 +90,8 @@ public class Estudiantes implements Serializable {
     private Date fnacimiento;
     @Column(name = "sexo")
     private String sexo;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "idestudiante")
+    private Matriculacion matriculacion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idestudiante")
     private Collection<InscripcionesAsignaturas> inscripcionesAsignaturasCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idestudiante")
@@ -97,7 +100,7 @@ public class Estudiantes implements Serializable {
     private Collection<Evaluaciones> evaluacionesCollection;
     @JoinColumn(name = "representanteid", referencedColumnName = "representanteid")
     @ManyToOne
-    private Representante representanteId;
+    private Representante representanteid;
     @OneToMany(mappedBy = "idestudiante")
     private Collection<Pagos> pagosCollection;
 
@@ -224,6 +227,14 @@ public class Estudiantes implements Serializable {
         this.sexo = sexo;
     }
 
+    public Matriculacion getMatriculacion() {
+        return matriculacion;
+    }
+
+    public void setMatriculacion(Matriculacion matriculacion) {
+        this.matriculacion = matriculacion;
+    }
+
     @XmlTransient
     public Collection<InscripcionesAsignaturas> getInscripcionesAsignaturasCollection() {
         return inscripcionesAsignaturasCollection;
@@ -251,12 +262,12 @@ public class Estudiantes implements Serializable {
         this.evaluacionesCollection = evaluacionesCollection;
     }
 
-    public Representante getRepresentanteId() {
-        return representanteId;
+    public Representante getRepresentanteid() {
+        return representanteid;
     }
 
-    public void setRepresentanteId(Representante representanteId) {
-        this.representanteId = representanteId;
+    public void setRepresentanteid(Representante representanteid) {
+        this.representanteid = representanteid;
     }
 
     @XmlTransient

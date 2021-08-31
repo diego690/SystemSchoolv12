@@ -6,8 +6,10 @@
 package uteq.sga.SystemSchoolv12.Implements;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uteq.sga.SystemSchoolv12.Entity.Aula;
+import uteq.sga.SystemSchoolv12.Repositorys.IAulaRepository;
 import uteq.sga.SystemSchoolv12.Services.IAulaServices;
 
 /**
@@ -16,25 +18,28 @@ import uteq.sga.SystemSchoolv12.Services.IAulaServices;
  */
 @Service
 public class AulaImpl implements IAulaServices{
+    
+    @Autowired
+    private IAulaRepository aularepo;
 
     @Override
     public List<Aula> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (List<Aula>) aularepo.findAll();
     }
 
     @Override
     public void guardar(Aula actividad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        aularepo.save(actividad);
     }
 
     @Override
     public Aula buscaById(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return aularepo.findById(id).orElse(null);
     }
 
     @Override
     public void eliminar(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        aularepo.deleteById(id);
     }
     
 }

@@ -53,7 +53,7 @@ public class Documentos implements Serializable {
     private Integer idusuario;
     @Column(name = "fechasubida")
     @Temporal(TemporalType.DATE)
-     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechasubida;
     @JoinColumn(name = "idtipodocumento", referencedColumnName = "idtipodocu")
     @ManyToOne(optional = false)
